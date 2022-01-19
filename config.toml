@@ -4,4 +4,4 @@ title = 'My New Hugo Site'
 theme = "ananke"
 
 [params]
-  headless_gallery_bundle = "/post"
+  headless_gallery_bundle = "/frontpage-gallery"
