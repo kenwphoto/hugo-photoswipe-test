@@ -1,0 +1,21 @@
+{{ define "main" }}
+ <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "mid-gray" }}">
+    {{ .Content }}
+  </article>
+
+  {{ $headless := .Site.GetPage $.Site.Params.headless_gallery_bundle }}
+  <div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
+    {{- range ($headless.Resources.ByType "image") }}
+    {{ $thumbnail := .Resize "320x" }}
+      <figure itemscope itemtype="http://schema.org/ImageObject" class="image gallery-item">
+      <a href="{{ .Permalink }}" itemprop="contentUrl" data-size="{{ .Width }}x{{ .Height }}" >
+        <img src="{{ $thumbnail.Permalink }}" itemprop="thumbnail" alt="galleryImage" class="galleryImage" />
+      </a>
+      <figcaption itemprop="caption description">
+        <span itemprop="copyrightHolder"></span>
+      </figcaption>
+      </figure> 
+    {{ end }}
+	</div>
+
+{{ end }}
