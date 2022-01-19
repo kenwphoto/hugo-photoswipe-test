@@ -5,3 +5,4 @@ theme = "ananke"
 
 [params]
   headless_gallery_bundle = "/frontpage-gallery"
+  custom_css = ["custom.css"]
